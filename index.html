@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 02 - Stopwatch Web Application</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="stopwatch-card" aria-labelledby="appTitle">
+      <h1 id="appTitle">Stopwatch Web Application</h1>
+      <p class="subtitle">
+        Track time precisely, pause when needed, and capture lap times as you go.
+      </p>
+
+      <div class="display-panel" aria-live="polite" aria-atomic="true">
+        <span class="time" id="display">00:00:00.00</span>
+      </div>
+
+      <div class="controls">
+        <button class="control-btn start-btn" id="startBtn" type="button">Start</button>
+        <button class="control-btn pause-btn" id="pauseBtn" type="button">Pause</button>
+        <button class="control-btn lap-btn" id="lapBtn" type="button">Lap</button>
+        <button class="control-btn reset-btn" id="resetBtn" type="button">Reset</button>
+      </div>
+
+      <section class="laps-panel" aria-labelledby="lapsTitle">
+        <div class="laps-header">
+          <h2 id="lapsTitle">Lap Times</h2>
+          <span class="lap-count" id="lapCount">0 laps</span>
+        </div>
+        <ol class="laps-list" id="lapsList"></ol>
+        <p class="empty-state" id="emptyState">No laps recorded yet.</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+:root {
+  --bg-start: #07111f;
+  --bg-end: #102542;
+  --card-bg: rgba(11, 25, 44, 0.72);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text-main: #f8fafc;
+  --text-soft: #bfd0e1;
+  --accent: #ffb703;
+  --accent-strong: #fb8500;
+  --success: #4ade80;
+  --danger: #f87171;
+  --shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+  --transition: 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top left, rgba(255, 183, 3, 0.18), transparent 22%),
+    radial-gradient(circle at bottom right, rgba(251, 133, 0, 0.22), transparent 24%),
+    linear-gradient(160deg, var(--bg-start), var(--bg-end));
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.stopwatch-card {
+  width: min(100%, 760px);
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  background: var(--card-bg);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  margin: 0 0 0.6rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+}
+
+.subtitle {
+  margin: 0.9rem 0 0;
+  max-width: 56ch;
+  color: var(--text-soft);
+  font-size: 1rem;
+}
+
+.display-panel {
+  margin-top: 2rem;
+  padding: 1.4rem 1rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.time {
+  display: block;
+  font-size: clamp(2.2rem, 8vw, 4.8rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+
+.controls {
+  margin-top: 1.75rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.control-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.95rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #08111d;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.24);
+}
+
+.control-btn:active {
+  transform: translateY(0);
+}
+
+.start-btn {
+  background: var(--success);
+}
+
+.pause-btn {
+  background: #93c5fd;
+}
+
+.lap-btn {
+  background: var(--accent);
+}
+
+.reset-btn {
+  background: var(--danger);
+}
+
+.laps-panel {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.laps-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.laps-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.lap-count {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+.laps-list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  max-height: 280px;
+  overflow: auto;
+}
+
+.lap-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.lap-label {
+  color: var(--text-soft);
+  font-weight: 600;
+}
+
+.lap-time {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.empty-state {
+  margin: 1rem 0 0;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .time {
+    letter-spacing: 0.04em;
+  }
+
+  .laps-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
